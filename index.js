@@ -19,9 +19,55 @@ function initializeData() {
 }
 
 // TASK: Get elements from the DOM
-const elements = {
-
-}
+  const elements = {
+  
+    // Navigation Sidebar
+    sideBar: document.getElementById('side-bar-div'),
+    logo: document.getElementById('logo'),
+    boardsNavLinksDiv: document.getElementById('boards-nav-links-div'),
+    headlineSidepanel: document.getElementById('headline-sidepanel'),
+    hideSideBarBtn: document.getElementById('hide-side-bar-btn'),
+    showSideBarBtn: document.getElementById('show-side-bar-btn'),
+    
+    // Main Layout
+    layout: document.getElementById('layout'),
+    header: document.getElementById('header'),
+    headerBoardName: document.getElementById('header-board-name'),
+    addNewTaskBtn: document.getElementById('add-new-task-btn'),
+    editBoardBtn: document.getElementById('edit-board-btn'),
+    editBoardDiv: document.getElementById('editBoardDiv'),
+    container: document.getElementById('container'),
+    
+    // Task Columns
+    todoColumn: document.querySelector('.column-div[data-status="todo"]'), // Select by data-status attribute
+    doingColumn: document.querySelector('.column-div[data-status="doing"]'),
+    doneColumn: document.querySelector('.column-div[data-status="done"]'),
+    todoText: document.getElementById('toDoText'),
+    doingText: document.getElementById('doingText'),
+    doneText: document.getElementById('doneText'),
+    
+    // New Task Modal
+    newTaskModalWindow: document.getElementById('new-task-modal-window'),
+    titleInput: document.getElementById('title-input'),
+    descInput: document.getElementById('desc-input'),
+    selectStatus: document.getElementById('select-status'),
+    createTaskBtn: document.getElementById('create-task-btn'),
+    cancelAddTaskBtn: document.getElementById('cancel-add-task-btn'),
+    
+    // Edit Task Modal (assuming class selector for the modal itself)
+    editTaskModalWindow: document.querySelector('.edit-task-modal-window'),
+    editTaskForm: document.getElementById('edit-task-form'),
+    editTaskTitleInput: document.getElementById('edit-task-title-input'),
+    editTaskDescInput: document.getElementById('edit-task-desc-input'),
+    editSelectStatus: document.getElementById('edit-select-status'),
+    saveTaskChangesBtn: document.getElementById('save-task-changes-btn'),
+    cancelEditBtn: document.getElementById('cancel-edit-btn'),
+    deleteTaskBtn: document.getElementById('delete-task-btn'),
+    
+    // filter Div
+    filterDiv: document.getElementById('filterDiv')
+  }
+  
 
 let activeBoard = ""
 

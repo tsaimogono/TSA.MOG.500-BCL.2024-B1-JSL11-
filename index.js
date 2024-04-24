@@ -241,8 +241,10 @@ function addTask(event) {
 
   //Assign user input to the task object
     const task = {
+      id: '',
       title: elements.titleInput.value,
       description: elements.descInput.value,
+
       status: elements.selectStatus.value,
       board: activeBoard,
     };
@@ -261,8 +263,11 @@ function addTask(event) {
 function toggleSidebar(show) {
   if (show){
     elements.sideBar.style.display = 'block'
+    elements.showSideBarBtn.style.display = 'none'
   }else{
-   elements.sideBar.style.display = 'none' }
+   elements.sideBar.style.display = 'none'
+   elements.showSideBarBtn.style.display = 'block'
+   }
 }
 
 function toggleTheme() {
@@ -287,6 +292,7 @@ function openEditTaskModal(task) {
   // Call saveTaskChanges upon click of Save Changes button
   saveChangesBtn.addEventListener('click', () => {
     saveTaskChanges(task.id);
+	  toggleModal(false, elements.editTaskModal);
     refreshTasksUI();
   });
 
@@ -296,6 +302,9 @@ function openEditTaskModal(task) {
 	  toggleModal(false, elements.editTaskModal);
     refreshTasksUI();
 	});
+
+  toggleModal(true, elements.editTaskModal);
+  
 }
 
 function saveTaskChanges(taskId) {
@@ -317,7 +326,7 @@ function saveTaskChanges(taskId) {
   patchTask(taskId, updatedTask);
 
   // Close the modal and refresh the UI to reflect the changes
-  
+  toggleModal(true, elements.editTaskModal);
   refreshTasksUI();
 }
 

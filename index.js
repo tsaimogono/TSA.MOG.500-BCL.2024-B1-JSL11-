@@ -1,7 +1,7 @@
 // TASK: import helper functions from utils
-  import {getTasks, createNewTask, patchTask, putTask, deleteTask} from './utils/taskFunction';
+  import {getTasks, createNewTask, patchTask, putTask, deleteTask} from './utils/taskFunctions.js';
 // TASK: import initialData
-import { initialData } from './initialData';
+import { initialData } from './initialData.js';
 
 
 /*************************************************************************************************************************************************
@@ -28,6 +28,7 @@ function initializeData() {
     headlineSidepanel: document.getElementById('headline-sidepanel'),
     hideSideBarBtn: document.getElementById('hide-side-bar-btn'),
     showSideBarBtn: document.getElementById('show-side-bar-btn'),
+    themeSwitch: document.getElementById('switch'),
     
     // Main Layout
     layout: document.getElementById('layout'),
@@ -47,15 +48,15 @@ function initializeData() {
     doneText: document.getElementById('doneText'),
     
     // New Task Modal
-    newTaskModalWindow: document.getElementById('new-task-modal-window'),
+    modalWindow: document.getElementById('new-task-modal-window'),
     titleInput: document.getElementById('title-input'),
     descInput: document.getElementById('desc-input'),
     selectStatus: document.getElementById('select-status'),
-    createTaskBtn: document.getElementById('create-task-btn'),
+    createNewTaskBtn: document.getElementById('create-task-btn'),
     cancelAddTaskBtn: document.getElementById('cancel-add-task-btn'),
     
     // Edit Task Modal (assuming class selector for the modal itself)
-    editTaskModalWindow: document.querySelector('.edit-task-modal-window'),
+    modalWindow: document.querySelector('#edit-task-modal-window'),
     editTaskForm: document.getElementById('edit-task-form'),
     editTaskTitleInput: document.getElementById('edit-task-title-input'),
     editTaskDescInput: document.getElementById('edit-task-desc-input'),
@@ -111,7 +112,7 @@ function displayBoards(boards) {
 // TASK: Fix Bugs
 function filterAndDisplayTasksByBoard(boardName) {
   const tasks = getTasks(); // Fetch tasks from a simulated local storage function
-  const filteredTasks = tasks.filter(task => task.board = boardName);
+  const filteredTasks = tasks.filter(task => task.board === boardName);
 
   // Ensure the column titles are set outside of this function or correctly initialized before this function runs
 
@@ -150,7 +151,7 @@ function refreshTasksUI() {
 // Styles the active board by adding an active class
 // TASK: Fix Bugs
 function styleActiveBoard(boardName) {
-  document.querySelectorAll('.board-btn').foreach(btn => { 
+  document.querySelectorAll('.board-btn').forEach(btn => { 
     
     if(btn.textContent === boardName) {
       btn.classList.add('active') 
@@ -163,7 +164,7 @@ function styleActiveBoard(boardName) {
 
 
 function addTaskToUI(task) {
-  const column = document.querySelector('.column-div[data-status="${task.status}"]'); 
+  const column = document.querySelector(`.column-div[data-status="${task.status}"]`); 
   if (!column) {
     console.error(`Column not found for status: ${task.status}`);
     return;
@@ -182,7 +183,7 @@ function addTaskToUI(task) {
   taskElement.textContent = task.title; // Modify as needed
   taskElement.setAttribute('data-task-id', task.id);
   
-  tasksContainer.appendChild(); 
+  tasksContainer.appendChild(taskElement); 
 }
 
 
@@ -208,7 +209,7 @@ function setupEventListeners() {
   // Show sidebar event listener
   elements.hideSideBarBtn.addEventListener('click', ()=> toggleSidebar(false));
   elements.showSideBarBtn.addEventListener('click',()=> toggleSidebar(true));
-
+  elements.showSideBarBtn.style.display = 'block';
   // Theme switch event listener
   elements.themeSwitch.addEventListener('change', toggleTheme);
 
@@ -253,11 +254,11 @@ function addTask(event) {
 
 
 function toggleSidebar(show) {
- 
+      
+    
 }
 
 function toggleTheme() {
- 
 }
 
 
@@ -271,7 +272,7 @@ function openEditTaskModal(task) {
   // Get button elements from the task modal
     const saveChangesBtn = document.getElementById('save-changes-btn');
     const deleteTaskBtn = document.getElementById('delete-task-btn');
-    
+
   // Call saveTaskChanges upon click of Save Changes button
  
 

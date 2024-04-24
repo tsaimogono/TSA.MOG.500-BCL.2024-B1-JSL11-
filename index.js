@@ -259,6 +259,8 @@ function toggleSidebar(show) {
         
 }
 
+// Declared a variable isLightMode and assigning it the boolean value true
+let isLightMode = true;
 function toggleTheme() {
 }
 

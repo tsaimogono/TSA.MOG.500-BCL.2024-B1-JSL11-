@@ -254,16 +254,17 @@ function addTask(event) {
 
 
 function toggleSidebar(show) {
- if (show){
-  elements.sideBar.style.display = 'block'
- } 
- elemments.sideBar.style.display = 'none'
+  if (show){
+    elements.sideBar.style.display = 'block'
+   } 
+   elemments.sideBar.style.display = 'none' 
 }
+
 function toggleTheme() {
-
- 
-
+  document.body.classList.toggle('light-theme')
 }
+
+
 
 function openEditTaskModal(task) {
   // Set task details in modal inputs

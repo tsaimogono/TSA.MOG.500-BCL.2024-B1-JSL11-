@@ -255,15 +255,26 @@ function addTask(event) {
 
 function toggleSidebar(show) {
   elements.sideBar.style.display = show ? 'block' : 'none';
-  elements.showSideBarBtn.style.display = show ? 'none' : 'block';
-        
+  elements.showSideBarBtn.style.display = show ? 'none' : 'block';      
 }
-
 // Declared a variable isLightMode and assigning it the boolean value true
 let isLightMode = true;
-function toggleTheme() {
-}
 
+function toggleTheme() {
+
+  const isLightTheme = elements.body.classList.contains('light-theme');
+  elements.body.classList.toggle('light-theme');
+  localStorage.setItem('light-theme', !isLightTheme ? 'enabled' : 'disabled');
+
+  isLightMode = !isLightMode; // Toggle the mode
+
+  if (isLightMode) {
+    elements.sideLogoDiv.src = './assets/logo-dark.svg'; // Change to dark mode
+  } else {
+    elements.sideLogoDiv.src = './assets/logo-light.svg'; // Change to light mode
+  }
+
+}
 
 
 function openEditTaskModal(task) {

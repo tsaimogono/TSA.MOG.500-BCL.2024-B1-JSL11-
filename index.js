@@ -278,7 +278,7 @@ function openEditTaskModal(task) {
   elements.editTaskDescInput.value = task.description;
   elements.editSelectStatus.value = task.status;
 
-  //toggleModal(true, elements.editTaskModal); // Show the edit task modal
+  toggleModal(true, elements.editTaskModal); // Show the edit task modal
 
   // Get button elements from the task modal
     const saveChangesBtn = document.getElementById('save-task-changes-btn');

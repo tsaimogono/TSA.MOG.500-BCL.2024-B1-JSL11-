@@ -22,14 +22,15 @@ function initializeData() {
   const elements = {
   
     // Navigation Sidebar
-    sideBar: document.getElementById('side-bar-div'),
-    logo: document.getElementById('logo'),
+    
+    headerBoardName: document.getElementById("header-board-name"),
+    sideBar: document.querySelector('.side-bar'),
+    sideLogoDiv: document.getElementById('logo'),
+    sideBarDiv: document.getElementById('side-bar-div'),
     boardsNavLinksDiv: document.getElementById('boards-nav-links-div'),
-    headlineSidepanel: document.getElementById('headline-sidepanel'),
+    themeSwitch: document.getElementById('switch'),
     hideSideBarBtn: document.getElementById('hide-side-bar-btn'),
     showSideBarBtn: document.getElementById('show-side-bar-btn'),
-    themeSwitch: document.getElementById('switch'),
-    
     // Main Layout
     layout: document.getElementById('layout'),
     header: document.getElementById('header'),
@@ -289,24 +290,23 @@ function openEditTaskModal(task) {
 	})
 
 
+  refreshTasksUI();
   toggleModal(true, elements.editTaskModal); // Show the edit task modal
 }
 
 function saveTaskChanges(taskId) {
   // Get new user inputs
-  const titleInput = elements.editTaskTitleInput;
-  const descriptionInput = elements.editTaskDescInput ;
-  const selectStatus = elements.editSelectStatus;
-
-
+  
   // Create an object with the updated task details
-
+  const updatedTask ={
+    
+  };
 
   // Update task using a hlper functoin
  
 
   // Close the modal and refresh the UI to reflect the changes
-
+  
   refreshTasksUI();
 }
 

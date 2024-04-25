@@ -11,8 +11,9 @@ import { initialData } from './initialData.js';
 // Function checks if local storage already has data, if not it loads initialData to localStorage
 function initializeData() {
   if (!localStorage.getItem('tasks')) {
+    // Load initialData if no tasks exist in localStorage
     localStorage.setItem('tasks', JSON.stringify(initialData)); 
-    localStorage.setItem('showSideBar', 'true')
+    localStorage.setItem('showSideBar', 'true');// Initialize showSideBar value
   } else {
     console.log('Data already exists in localStorage');
   }
@@ -21,7 +22,7 @@ initializeData();
 
 // TASK: Get elements from the DOM
   const elements = {
-  
+  // DOM elements for navigation sidebar, main layout, task columns, modals, and filter div
     // Navigation Sidebar
     sideBar: document.getElementById('side-bar-div'),
     logo: document.getElementById('logo'),
@@ -82,7 +83,7 @@ function fetchAndDisplayBoardsAndTasks() {
   if (boards.length > 0) {
     const localStorageBoard = JSON.parse(localStorage.getItem("activeBoard"))
     activeBoard = localStorageBoard ? localStorageBoard :  boards[0]; 
-    elements.headerBoardName.textContent = activeBoard
+    elements.headerBoardName.textContent = activeBoard;// Set the active board name in the header
     styleActiveBoard(activeBoard)
     refreshTasksUI();
   }
@@ -94,9 +95,11 @@ function displayBoards(boards) {
   const boardsContainer = document.getElementById("boards-nav-links-div");
   boardsContainer.innerHTML = ''; // Clears the container
   boards.forEach(board => {
+     // Create button for each board
     const boardElement = document.createElement("button");
     boardElement.textContent = board;
     boardElement.classList.add("board-btn");
+    // Add click event listener to switch between boards
     boardElement.addEventListener('click', () => { 
       elements.headerBoardName.textContent = board;
       filterAndDisplayTasksByBoard(board);
@@ -128,6 +131,7 @@ function filterAndDisplayTasksByBoard(boardName) {
     const tasksContainer = document.createElement("div");
     column.appendChild(tasksContainer);
 
+    // Filter and display tasks for each column
     filteredTasks.filter(task => task.status === status).forEach(task => { 
      const taskElement = document.createElement("div");
      taskElement.classList.add("task-div");
@@ -164,6 +168,7 @@ function styleActiveBoard(boardName) {
 }
 
 
+// Add task to UI
 function addTaskToUI(task) {
   const column = document.querySelector(`.column-div[data-status="${task.status}"]`); 
   if (!column) {
@@ -187,8 +192,7 @@ function addTaskToUI(task) {
   tasksContainer.appendChild(taskElement); 
 }
 
-
-
+// Setup event listeners for UI elements
 function setupEventListeners() {
   // Cancel editing task event listener
   const cancelEditBtn = document.getElementById('cancel-edit-btn');
@@ -236,6 +240,7 @@ function toggleModal(show, modal = elements.modalWindow) {
  * COMPLETE FUNCTION CODE
  * **********************************************************************************************************************************************/
 
+// Add a new task
 function addTask(event) {
   event.preventDefault(); 
 
@@ -270,6 +275,7 @@ function toggleSidebar(show) {
    }
 }
 
+// Toggle between light and dark themes
 function toggleTheme() {
   const isLightTheme = document.body.classList.contains('light-theme');
   document.body.classList.toggle('light-theme');
@@ -277,6 +283,7 @@ function toggleTheme() {
 }
 
 
+// Open the edit task modal
 function openEditTaskModal(task) {
   // Set task details in modal inputs
   elements.editTaskTitleInput.value = task.title;
@@ -307,6 +314,7 @@ function openEditTaskModal(task) {
   
 }
 
+// Save changes made to the task
 function saveTaskChanges(taskId) {
   // Get new user inputs
   const titleInput = elements.editTaskTitleInput;
@@ -335,7 +343,7 @@ function saveTaskChanges(taskId) {
 document.addEventListener('DOMContentLoaded', function() {
   init(); // init is called after the DOM is fully loaded
 });
-
+// Initialize the application
 function init() {
   setupEventListeners();
   const showSidebar = localStorage.getItem('showSideBar') === 'true';

@@ -48,3 +48,15 @@ The Task Manager Application helps users manage their tasks efficiently. It allo
 - CSS Styling: Implement CSS styles to improve the application's visual appearance and user experience.
 - Responsiveness: Make the application responsive to ensure it adapts to different screen sizes and devices
 - Modals: Improve the modal experience by adding animations and transitions.
+
+ ## LEARNING OUTCOMES
+ - Syntax: the syntax of the programming language used in the code and understand how to write code correctly.
+- Variables: how variables are declared and used. Understanding variables is fundamental because they store data that the program manipulates.
+- Conditional Statements: Recognize how conditional statements (like if-else statements) are used to make decisions in the program.
+- Loops: Understand how loops (like for or while loops) are employed to iterate over data or perform repetitive tasks.
+- Functions: Identify how functions are defined and called.
+- Error Handling: learn how to handle errors gracefully.
+- Debugging: Analyzing code helped to understand how to debug common issues and errors that arise during development.
+- Algorithmic Thinking: Understanding the logic flow of the code helped develop my algorithmic thinking skills.
+- Event Listeners:The program demonstrates how to attach event listeners to various UI elements like buttons and forms. These listeners trigger functions when the user interacts with those elements.
+- Local Storage:The code utilizes Local Storage to save and retrieve data like the active board, theme preference, and potentially task data (although not implemented in the provided snippet).

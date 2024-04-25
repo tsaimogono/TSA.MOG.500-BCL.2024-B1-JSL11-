@@ -60,3 +60,5 @@ The Task Manager Application helps users manage their tasks efficiently. It allo
 - Algorithmic Thinking: Understanding the logic flow of the code helped develop my algorithmic thinking skills.
 - Event Listeners:The program demonstrates how to attach event listeners to various UI elements like buttons and forms. These listeners trigger functions when the user interacts with those elements.
 - Local Storage:The code utilizes Local Storage to save and retrieve data like the active board, theme preference, and potentially task data (although not implemented in the provided snippet).
+   ## Presentation link
+  https://www.loom.com/share/dd67ceb208c148a28544ebfaf00fdef5?sid=c03394e1-8c0a-45f7-8d56-371b9beb82ba
